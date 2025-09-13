@@ -47,7 +47,7 @@ class DAO():
     @staticmethod
     def getDriverYearResults(anno,_idMapPiloti):
         cnx = DBConnect.get_connection()
-        cursor = cnx.cursor()
+        cursor = cnx.cursor(dictionary = True)
         result = []
         query ="""select r1.driverId as d1, r2.driverId as d2, count(*) as cnt
 				from results as r1, results as r2, races
